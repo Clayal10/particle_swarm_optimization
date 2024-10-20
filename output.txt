@@ -1,0 +1,8 @@
+Benchmark Function: Sphere
+Best Position: [-0.267338, 0.114486, 0.233708, -1.21868, -0.468428, -0.0180474, -0.776566, 0.506309, 0.314972, 0.0514896, ]
+Best Fitness: 2.80539
+Swarm Size: 30
+Intertia Weight: 0.99
+Cognitive Coefficient: 2
+Social Coefficient: 2
+Number of Iterations: 10000
