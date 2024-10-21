@@ -14,6 +14,8 @@ struct partical{
 
 class Swarm{
 public:
+	int dimensions;
+
 	std::vector<partical> swarm_vec;
 	partical best_gpartical;
 

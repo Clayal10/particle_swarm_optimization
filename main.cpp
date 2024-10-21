@@ -14,17 +14,21 @@ notes:
 #include<vector>
 #include<ctime>
 #include<fstream>
+#include<cmath>
 #include"swarm.h"
 
 using namespace std;
+
+
+//double rosenbrock(vector<double> p);
 
 int main(){
 	srand((unsigned int)time(0));
 	int iterations = 10000;
 	int swarm_size = 30;
-	double inertia = 0.99;
-	double c1 = 1.5;
-	double c2 = 1.5;
+	double inertia = 0.9;
+	double c1 = 2;
+	double c2 = 2;
 	char function = 's';
 
 	//PSO parameters
@@ -33,37 +37,6 @@ int main(){
 	Swarm rose_swarm(iterations, swarm_size, inertia, c1, c2, function);
 	swarm.iterate_swarm();
 	rose_swarm.iterate_swarm();
-	/*for testing*/
-/*
-	cout << "=======\n" << swarm.best_gpartical.fitness << "\n======\n";
-	double fitness;
-	//iterations
-for(int j=0; j<3; j++){
-	fitness = 0;
-	for(int i=0; i<10; i++){
-		cout << swarm.swarm_vec[j].position[i] << endl;
-		fitness += swarm.swarm_vec[j].position[i];
-	}
-	cout << "Fitness: ";
-	cout << fitness << "\n\n";
-
-}
-	swarm.iterate_swarm();
-
-	cout << "\n\n\n";
-for(int j=0; j<3; j++){
-	fitness = 0;
-	for(int i=0; i<10; i++){
-		cout << swarm.swarm_vec[j].position[i] << endl;
-		fitness += swarm.swarm_vec[j].position[i];
-	}
-	cout << "Fitness: ";
-	cout << fitness << endl;
-}
-	cout << "=======\n" << swarm.best_gpartical.fitness << "\n======\n";
-
-*/
-
 	
 	ofstream fp;
 	fp.open("output.txt");
@@ -74,7 +47,7 @@ for(int j=0; j<3; j++){
 
 	fp << "Benchmark Function: Sphere" << endl;
 	fp << "Best Position: [";
-	for(int i=0; i<10; i++){
+	for(int i=0; i<swarm.dimensions; i++){
 		fp << swarm.best_gpartical.position[i] << ", ";
 	}
 	fp << "]\n";
@@ -89,7 +62,7 @@ for(int j=0; j<3; j++){
 
 	fp << "Benchmark Function: Rosenbrock" << endl;
 	fp << "Best Position: [";
-	for(int i=0; i<10; i++){
+	for(int i=0; i<rose_swarm.dimensions; i++){
 		fp << rose_swarm.best_gpartical.position[i] << ", ";
 	}
 	fp << "]\n";
@@ -99,7 +72,20 @@ for(int j=0; j<3; j++){
 	fp << "Cognitive Coefficient: " << c1 << endl;
 	fp << "Social Coefficient: " << c2 << endl;
 	fp << "Number of Iterations: " << iterations << endl;
-	
+/*
+	vector<double> rose = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
+	cout << rosenbrock(rose) << endl;
+*/	
 
 	return 0;	
 }
+/*
+double rosenbrock(vector<double> p){
+	double sum=0;
+	for(int i=0; i<9; i++){//iterates through total-1
+		sum += 100 * pow((p[i+1] - pow(p[i], 2)), 2) + pow(1 - p[i], 2);
+	}
+	
+	return sum;
+}
+*/
