@@ -14,9 +14,12 @@ struct partical{
 
 class Swarm{
 public:
+	int dimensions;
+
 	std::vector<partical> swarm_vec;
 	partical best_gpartical;
 
+	char function; // either s or r
 	int iterations;
 	int partical_amt;
 	double w; // inertia weight
@@ -28,5 +31,5 @@ public:
 	void iterate_swarm();
 
 	
-	Swarm(int i, int p, double w, double c1, double c2);	
+	Swarm(int i, int p, double w, double c1, double c2, char f);	
 };
