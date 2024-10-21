@@ -23,12 +23,16 @@ int main(){
 	int iterations = 10000;
 	int swarm_size = 30;
 	double inertia = 0.99;
-	double c1 = 2.0;
-	double c2 = 2.0;
+	double c1 = 1.5;
+	double c2 = 1.5;
+	char function = 's';
 
 	//PSO parameters
-	Swarm swarm(iterations, swarm_size, inertia, c1, c2);
+	Swarm swarm(iterations, swarm_size, inertia, c1, c2, function);
+	function = 'r';
+	Swarm rose_swarm(iterations, swarm_size, inertia, c1, c2, function);
 	swarm.iterate_swarm();
+	rose_swarm.iterate_swarm();
 	/*for testing*/
 /*
 	cout << "=======\n" << swarm.best_gpartical.fitness << "\n======\n";
@@ -59,6 +63,7 @@ for(int j=0; j<3; j++){
 	cout << "=======\n" << swarm.best_gpartical.fitness << "\n======\n";
 
 */
+
 	
 	ofstream fp;
 	fp.open("output.txt");
@@ -80,7 +85,20 @@ for(int j=0; j<3; j++){
 	fp << "Social Coefficient: " << c2 << endl;
 	fp << "Number of Iterations: " << iterations << endl;
 	
+	fp << "\n======================================\n\n";
 
+	fp << "Benchmark Function: Rosenbrock" << endl;
+	fp << "Best Position: [";
+	for(int i=0; i<10; i++){
+		fp << rose_swarm.best_gpartical.position[i] << ", ";
+	}
+	fp << "]\n";
+	fp << "Best Fitness: " << rose_swarm.best_gpartical.fitness << endl;
+	fp << "Swarm Size: " << swarm_size << endl;
+	fp << "Intertia Weight: " << inertia << endl;
+	fp << "Cognitive Coefficient: " << c1 << endl;
+	fp << "Social Coefficient: " << c2 << endl;
+	fp << "Number of Iterations: " << iterations << endl;
 	
 
 	return 0;	

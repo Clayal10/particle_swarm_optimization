@@ -1,8 +1,19 @@
 Benchmark Function: Sphere
-Best Position: [-0.267338, 0.114486, 0.233708, -1.21868, -0.468428, -0.0180474, -0.776566, 0.506309, 0.314972, 0.0514896, ]
-Best Fitness: 2.80539
+Best Position: [-3.7982e-06, -0.000108736, 0.0002186, -3.54969e-05, 9.01935e-05, 5.9743e-06, 9.1673e-05, 2.51556e-06, -1.1503e-05, -8.83214e-05, ]
+Best Fitness: 8.53979e-08
 Swarm Size: 30
 Intertia Weight: 0.99
-Cognitive Coefficient: 2
-Social Coefficient: 2
+Cognitive Coefficient: 1.5
+Social Coefficient: 1.5
+Number of Iterations: 10000
+
+======================================
+
+Benchmark Function: Rosenbrock
+Best Position: [-0.770384, 0.522801, -0.243481, 0.117919, 0.287577, 0.0228214, -0.0975416, 0.00429051, -22.896, 524.723, ]
+Best Fitness: 53064.1
+Swarm Size: 30
+Intertia Weight: 0.99
+Cognitive Coefficient: 1.5
+Social Coefficient: 1.5
 Number of Iterations: 10000
